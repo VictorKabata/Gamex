@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splash_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.vickikbt.gamex.ui.fragments.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/home_to_game_detail"
+            app:destination="@id/game_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favourites_fragment"
+        android:name="com.vickikbt.gamex.ui.fragments.FavouritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/favourites_to_game_details"
+            app:destination="@id/game_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.vickikbt.gamex.ui.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/splash_to_home"
+            app:destination="@id/home_fragment"
+            app:popUpTo="@id/splash_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settings_fragment"
+        android:name="com.vickikbt.gamex.ui.fragments.SettingsFragment"
+        android:label="@string/title_settings" />
+    <fragment
+        android:id="@+id/game_detail_fragment"
+        android:name="com.vickikbt.gamex.ui.fragments.GameDetailFragment"
+        android:label="fragment_game_detail"
+        tools:layout="@layout/fragment_game_detail" >
+        <argument
+            android:name="GameId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>

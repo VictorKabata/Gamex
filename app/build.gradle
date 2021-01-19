@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.vickikbt.gamex"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    api project(':data')
+    api project(':domain')
+
+    api appDependencies.kotlin
+    api appDependencies.androidCore
+    api appDependencies.appCompat
+    api appDependencies.material
+    api appDependencies.constraintLayout
+    api appDependencies.navFragment
+    api appDependencies.navUi
+    //api appDependencies.navFragment
+    //api appDependencies.navUI
+    //api appDependencies.fragment
+    //api appDependencies.lifeCycle
+
+    api appDependencies.liveData
+
+    api appDependencies.viewModel
+
+    api appDependencies.glide
+    api appDependencies.glideTransformation
+
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    api appDependencies.dotsIndicator
+
+    api appDependencies.networkX
+
+    api appDependencies.hiltAndroid
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt appDependencies.hiltAndroidCompiler
+    //kapt appDependencies.hiltCompiler
+
+    api appDependencies.hiltViewModel
+    kapt appDependencies.hiltViewModelCompiler
+
+    api appDependencies.fadingEdges
+}
